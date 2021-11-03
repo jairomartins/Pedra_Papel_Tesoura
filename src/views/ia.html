@@ -43,22 +43,15 @@
         $.ajax({
             url: '/random',
             method : 'POST',
+            data: {
+                a: escolhaJogador,
+                
+            },
             success: function( resposta ) {
 
                 $( "#escolhaIA" ).html( "<strong>" + resposta.opt + "</strong>" );
+                $( "#resultado" ).html( "<strong>" + resposta.resultado + "</strong>" );
 
-                
-                
-                var escolhaIA = resposta.id
-                if(escolhaIA == escolhaJogador){
-                    $( "#resultado" ).html( "<strong> Empatou !</strong>" ); 
-                }else
-                if((escolhaJogador - escolhaIA == -2)|| (escolhaJogador - escolhaIA == 1)){
-                    $( "#resultado" ).html( "<strong> Ganhou ! </strong>" ); 
-                }else{
-                    $( "#resultado" ).html( "<strong> Perdeu ! </strong>" ); 
-                }
-      
             }
         });
     })
