@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>vs IA</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+    
+    </style>
+</head>
+<body>
+    <h1>Jogando vs IA</h1>
+    <hr>
+    <div class="jogador">
+        <hr>
+        <h4>Escola uma opção:</h4>
+        <ul>
+            <li><a class="opcao" id="0" href="#">Pedra</a></li>
+            <li><a class="opcao" id="1" href="#">Papel</a></li>
+            <li><a class="opcao" id="2" href="#">Tesora</a></li>
+        </ul>
+    </div>
+
+    <div class="jogador">
+        <hr>
+        Escolha do Computador:
+        <p id="escolhaIA"></p>
+    </div>
+    <div class="resultado">
+        Resultado:
+        <hr>
+        <p id="resultado"></p>
+    </div>
+</body>
+
+<script>
+
+    $('.opcao').click(function(){
+        var escolhaJogador = this.id
+        $.ajax({
+            url: '/random',
+            method : 'POST',
+            success: function( resposta ) {
+
+                $( "#escolhaIA" ).html( "<strong>" + resposta.opt + "</strong>" );
+
+                
+                
+                var escolhaIA = resposta.id
+                if(escolhaIA == escolhaJogador){
+                    $( "#resultado" ).html( "<strong> Empatou !</strong>" ); 
+                }else
+                if((escolhaJogador - escolhaIA == -2)|| (escolhaJogador - escolhaIA == 1)){
+                    $( "#resultado" ).html( "<strong> Ganhou ! </strong>" ); 
+                }else{
+                    $( "#resultado" ).html( "<strong> Perdeu ! </strong>" ); 
+                }
+      
+            }
+        });
+    })
+</script>
+</html>

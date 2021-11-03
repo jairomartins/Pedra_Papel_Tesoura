@@ -1,0 +1,6 @@
+POST http://localhost:3000/random
+content-type: application/json
+
+{
+    "nome": "henrique",
+}
