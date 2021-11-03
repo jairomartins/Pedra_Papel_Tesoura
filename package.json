@@ -1,0 +1,18 @@
+{
+  "name": "pedra_papel_tesoura",
+  "version": "1.0.0",
+  "description": "jogo pedra papel tesoura online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jairo7martins@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-react-view": "^1.1.7",
+    "nodemon": "^2.0.14",
+    "reac": "^0.0.0",
+    "react-dom": "^17.0.2"
+  }
+}
