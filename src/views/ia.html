@@ -8,7 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
-    
+        *{
+            /* margin: 0 auto; */
+            text-align: center;
+        }
+        img{
+            width: 165px;
+            height: 165px;
+        }
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -17,10 +27,15 @@
     <div class="jogador">
         <hr>
         <h4>Escola uma opção:</h4>
-        <ul>
-            <li><a class="opcao" id="0" href="#">Pedra</a></li>
-            <li><a class="opcao" id="1" href="#">Papel</a></li>
-            <li><a class="opcao" id="2" href="#">Tesora</a></li>
+            <a class="opcao" id="0" href="#">
+                <img src="..//public/img/1.png" alt="pedra" title="pedra">
+            </a>
+            <a class="opcao" id="1" href="#">
+                <img src="..//public/img/2.png" alt="papel" title="papel">
+            </a>
+            <a class="opcao" id="2" href="#">
+                <img src="..//public/img/3.png" alt="tesoura" title="tesoura">
+            </a>
         </ul>
     </div>
 
@@ -49,7 +64,7 @@
             },
             success: function( resposta ) {
 
-                $( "#escolhaIA" ).html( "<strong>" + resposta.opt + "</strong>" );
+                $( "#escolhaIA" ).html( '<img src="..//public/img/'+ (resposta.opt+1) + '.png">');
                 $( "#resultado" ).html( "<strong>" + resposta.resultado + "</strong>" );
 
             }

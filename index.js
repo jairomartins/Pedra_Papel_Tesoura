@@ -12,6 +12,7 @@ app.engine('html', require('hbs').__express);
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
+app.use(express.static(__dirname + '/src/'));
 // app.use(cors())
 
 app.get('/', (req, res)=>{
@@ -33,7 +34,7 @@ app.post('/random', (req, res) =>{
 
     var data = {}
 
-    data['opt'] = opcoes[escolhaIA]
+    data['opt'] = escolhaIA
 
     if(escolhaIA == escolhaJogador){
         data['resultado']= 'empate' 
